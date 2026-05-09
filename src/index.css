@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-slate-100 antialiased;
+  background-image:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 28%),
+    radial-gradient(circle at right, rgba(99, 102, 241, 0.14), transparent 30%),
+    linear-gradient(180deg, #0a1322 0%, #07101d 48%, #060d18 100%);
+}
+
+::selection {
+  background: rgba(125, 211, 252, 0.28);
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+
+  .glass {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur;
+  }
+
+  .chip {
+    @apply rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200;
+  }
+
+  .nav-link {
+    @apply rounded-full px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white;
+  }
+
+  .primary-btn {
+    @apply inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.02];
+  }
+
+  .secondary-btn {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10;
+  }
+}

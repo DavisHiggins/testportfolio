@@ -45,7 +45,7 @@ const NAV_ITEMS = [
 const STATS = [
   { value: '20+', label: 'Executive Dashboards' },
   { value: '$3,000+', label: 'Philanthropy Funds Raised' },
-  { value: '3.84', label: 'Current UNCC GPA' },
+  { value: '3.9', label: 'Current UNCC GPA' },
   { value: '2', label: 'Monetized Platforms' },
 ]
 
@@ -143,9 +143,10 @@ const EXPERIENCE = [
       'Deploy and manage applications, ensuring performance, reliability, and cross-device compatibility.',
       'Optimize UI/UX and site functionality to deliver intuitive, high-quality user experiences aligned with business needs.',
     ],
+    link: { label: 'Company Website', href: 'https://higginsd.com/' },
   },
   {
-    period: 'Jan 2026 – Present',
+    period: 'Apr 2026 – Present',
     title: 'Chaplain',
     company: 'Phi Delta Theta',
     detail: 'Faith Leadership · Brotherhood · Chapter Culture',
@@ -420,8 +421,8 @@ export default function App() {
 
                         <div className="mt-5 rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5">
                           <div className="flex items-center gap-4">
-                            <div className="rounded-2xl bg-sky-400/10 p-4 text-sky-300">
-                              <img src={kewauneeLogo} alt="Kewaunee Scientific logo" className="h-6 w-6 object-contain" />
+                            <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl">
+                              <img src={kewauneeLogo} alt="Kewaunee Scientific logo" className="h-full w-full object-fill" />
                             </div>
                             <div>
                               <div className="text-sm text-slate-400">Current Role</div>
@@ -526,18 +527,19 @@ export default function App() {
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.accent}`} />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,31,0.18),rgba(8,17,31,0.9))]" />
                     <div className="relative">
-                      <div className="mb-4 flex items-center gap-4">
+                      <div className="mb-5 flex items-start justify-between gap-6">
+                        <div className="min-w-0 pt-1">
+                          <div className="inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
+                            {project.tag}
+                          </div>
+                          <h3 className="mt-4 text-2xl font-semibold text-white">{project.title}</h3>
+                        </div>
                         <img
                           src={project.logo}
                           alt={`${project.title} logo`}
-                          className={project.logoClassName ?? 'h-16 w-16 shrink-0 object-contain bg-transparent sm:h-20 sm:w-20'}
+                          className="h-24 w-24 shrink-0 object-contain bg-transparent sm:h-28 sm:w-28"
                         />
-                        <div className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
-                          {project.tag}
-                        </div>
                       </div>
-
-                      <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
                       <p className="mt-2 text-sm text-slate-300">{project.subtitle}</p>
                       <p className="mt-5 text-sm leading-7 text-slate-200/90">{project.description}</p>
 
@@ -651,7 +653,7 @@ export default function App() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-2">
-          <Pill>GPA: 3.84</Pill>
+          <Pill>GPA: 3.9</Pill>
           <Pill>2x Chancellor’s List</Pill>
           <Pill>1x Dean’s List</Pill>
         </div>
@@ -938,8 +940,8 @@ export default function App() {
         <div className="section-shell flex items-center justify-between gap-4 py-4">
           <div className="flex items-center gap-3">
             <div className="hidden items-center gap-3.5 sm:flex">
-              <div className="flex h-14 w-12 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white">
-                <img src={dhLogo} alt="DH logo" className="h-10 w-10 object-contain" />
+              <div className="flex h-14 w-28 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white">
+                <img src={dhLogo} alt="DH logo" className="h-12 w-12 object-contain" />
               </div>
 
               <div className="leading-none">
@@ -961,7 +963,7 @@ export default function App() {
           </div>
 
           <nav className="hidden items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 shadow-glow lg:flex">
-            {NAV_ITEMS.map((item) => {
+            {NAV_ITEMS.filter((item) => item.key !== 'contact').map((item) => {
               const Icon = item.icon
               const active = activePage === item.key
 
@@ -982,6 +984,19 @@ export default function App() {
               )
             })}
           </nav>
+
+          <button
+            type="button"
+            onClick={() => setActivePage('contact')}
+            className={`hidden items-center gap-1.5 whitespace-nowrap rounded-full border border-sky-200/60 px-4 py-2 text-sm font-medium transition lg:inline-flex ${
+              activePage === 'contact'
+                ? 'bg-white text-slate-950'
+                : 'bg-sky-300 text-slate-950 hover:bg-cyan-200'
+            }`}
+          >
+            <Mail className="h-4 w-4 shrink-0" />
+            Contact
+          </button>
 
           <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 lg:hidden">
             {activeTitle}

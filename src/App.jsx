@@ -69,7 +69,7 @@ const PROJECTS = [
     stack: ['Python', 'Streamlit', 'Supabase', 'Postgres', 'Auth', 'nba_api', 'Pandas', 'NumPy', 'Matplotlib', 'scikit-learn'],
     primary: { label: 'Live Demo', href: 'https://propifydemo.streamlit.app/' },
     secondary: { label: 'GitHub Repository', href: 'https://github.com/DavisHiggins/PropifyDemo' },
-    accent: 'from-sky-500/25 via-cyan-400/10 to-indigo-500/20',
+    accent: 'from-sky-500/20 via-blue-500/10 to-white/5',
     logo: propifyLogo,
     logoClassName: 'h-20 w-20 shrink-0 object-contain bg-transparent sm:h-24 sm:w-24',
   },
@@ -86,7 +86,7 @@ const PROJECTS = [
     ],
     stack: ['Web Development', 'Responsive UX', 'Performance Optimization', 'Brand Systems', 'Domain Support', 'Client Delivery'],
     primary: { label: 'Live Website', href: 'https://higginsd.com/' },
-    accent: 'from-blue-500/25 via-sky-400/10 to-cyan-500/20',
+    accent: 'from-blue-600/20 via-cyan-400/10 to-white/5',
     logo: higginsDigitalLogo,
   },
   {
@@ -102,7 +102,7 @@ const PROJECTS = [
     ],
     stack: ['Python', 'Pandas', 'SQL', 'Matplotlib', 'Chi-Square', 'Logistic Regression'],
     primary: { label: 'GitHub Repository', href: 'https://github.com/DavisHiggins/HateCrimeDataAnalysis' },
-    accent: 'from-violet-500/25 via-fuchsia-400/10 to-sky-500/20',
+    accent: 'from-sky-400/20 via-cyan-400/10 to-white/5',
     logo: dhLogo,
   },
   {
@@ -118,7 +118,7 @@ const PROJECTS = [
     ],
     stack: ['Python', 'Visualization', 'Correlation', 'ANOVA', 'Chi-Square'],
     primary: { label: 'Final Paper', href: '/docs/Census_Data_Analysis_Paper.pdf' },
-    accent: 'from-emerald-500/25 via-teal-400/10 to-sky-500/20',
+    accent: 'from-sky-400/20 via-cyan-400/10 to-white/5',
     logo: dhLogo,
   },
 ]
@@ -129,6 +129,7 @@ const EXPERIENCE = [
     title: 'Data Analyst Intern',
     company: 'Kewaunee Scientific Corp.',
     logo: kewauneeScientificLogo,
+    accent: 'from-blue-500/10 via-red-500/10 to-white/5',
     detail: 'Dashboard Development · KPI Reporting · Data Automation',
     bullets: [
       'Engineer and maintain 20+ executive dashboards and 100+ visualizations that improve reporting quality, readability, and decision-making for leadership.',
@@ -143,6 +144,7 @@ const EXPERIENCE = [
     title: 'Founder & Web Developer',
     company: 'Higgins Digital',
     logo: higginsDigitalLogo,
+    accent: 'from-blue-600/20 via-cyan-400/10 to-white/5',
     website: 'https://higginsd.com/',
     detail: 'Responsive Websites · Production Deployment · UI/UX Optimization',
     bullets: [
@@ -157,6 +159,7 @@ const EXPERIENCE = [
     title: 'Chaplain',
     company: 'Phi Delta Theta',
     logo: pdtLogo,
+    accent: 'from-sky-400/10 via-yellow-400/10 to-white/5',
     detail: 'Faith Leadership · Brotherhood · Chapter Culture',
     bullets: [
       'Lead weekly Bible studies focused on faith, discipline, and brotherhood.',
@@ -169,6 +172,7 @@ const EXPERIENCE = [
     title: 'Vice President of Philanthropy',
     company: 'Phi Delta Theta',
     logo: pdtLogo,
+    accent: 'from-sky-400/10 via-yellow-400/10 to-white/5',
     detail: 'Leadership · Commitment · NC Epsilon',
     bullets: [
       'Lead fundraising strategy and execution, generating $3,000+ for the Live Like Lou Foundation.',
@@ -180,6 +184,7 @@ const EXPERIENCE = [
     title: 'Assistant to Project Manager',
     company: 'Higgins Building Group, Inc.',
     logo: hbgLogo,
+    accent: 'from-yellow-400/10 via-blue-500/10 to-white/5',
     detail: 'Operational Oversight · Timeline Documentation',
     bullets: [
       'Coordinated project documentation and cross-functional workflows to support construction operations.',
@@ -191,6 +196,7 @@ const EXPERIENCE = [
     title: 'Co-Founder & Operations Lead',
     company: 'Mobile Custom Apparel Business',
     logo: mpaLogo,
+    accent: 'from-orange-500/10 via-slate-500/10 to-white/5',
     detail: 'Self-employed · Retail Sales · Business Ownership',
     bullets: [
       'Ran a mobile retail operation across regional AAU basketball tournaments, optimizing pricing, revenue splits, and product mix using live sales data.',
@@ -204,6 +210,7 @@ const EXPERIENCE = [
     title: 'Warehouse Specialist',
     company: 'Touch-Up Solutions',
     logo: tusLogo,
+    accent: 'from-yellow-400/10 via-sky-500/10 to-white/5',
     detail: 'Order Fulfillment · Production · Shipment Handling',
     bullets: [
       'Executed high-volume inventory handling and order fulfillment with accuracy and efficiency.',
@@ -474,48 +481,53 @@ export default function App() {
                       <Briefcase className="h-4 w-4" />
                     </div>
 
-                    <div className="glass relative rounded-[2rem] p-6 shadow-soft">
-                      {item.logo ? (
-                        <img
-                          src={item.logo}
-                          alt={`${item.company} logo`}
-                          className="pointer-events-none absolute right-6 top-6 h-24 w-24 shrink-0 object-contain bg-transparent sm:h-28 sm:w-28"
-                        />
-                      ) : null}
-                      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                        <div>
-                          <div className="text-sm font-medium uppercase tracking-[0.18em] text-sky-300">{item.period}</div>
-                          <h3 className="mt-3 text-2xl font-semibold text-white">{item.title}</h3>
-                          <div className="mt-1 text-base text-slate-300">
-                            {item.website ? (
-                              <a href={item.website} target="_blank" rel="noreferrer" className="transition hover:text-sky-300">
-                                {item.company}
-                              </a>
-                            ) : (
-                              item.company
-                            )}
+                    <div className="glass relative overflow-hidden rounded-[2rem] p-6 shadow-soft">
+                      <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${item.accent ?? 'from-white/5 via-white/[0.02] to-transparent'}`} />
+                      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,31,0.18),rgba(8,17,31,0.88))]" />
+
+                      <div className="relative">
+                        {item.logo ? (
+                          <img
+                            src={item.logo}
+                            alt={`${item.company} logo`}
+                            className="pointer-events-none absolute right-0 top-0 h-24 w-24 shrink-0 object-contain bg-transparent sm:h-28 sm:w-28"
+                          />
+                        ) : null}
+                        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                          <div>
+                            <div className="text-sm font-medium uppercase tracking-[0.18em] text-sky-300">{item.period}</div>
+                            <h3 className="mt-3 text-2xl font-semibold text-white">{item.title}</h3>
+                            <div className="mt-1 text-base text-slate-300">
+                              {item.website ? (
+                                <a href={item.website} target="_blank" rel="noreferrer" className="transition hover:text-sky-300">
+                                  {item.company}
+                                </a>
+                              ) : (
+                                item.company
+                              )}
+                            </div>
+                            <div className="mt-1 text-sm text-slate-500">{item.detail}</div>
                           </div>
-                          <div className="mt-1 text-sm text-slate-500">{item.detail}</div>
                         </div>
+
+                        <ul className="mt-6 space-y-3 text-sm leading-7 text-slate-300">
+                          {item.bullets.map((bullet) => (
+                            <li key={bullet} className="flex gap-3">
+                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {item.link ? (
+                          <div className="mt-6">
+                            <a href={item.link.href} target="_blank" rel="noreferrer" className="secondary-btn">
+                              {item.link.label}
+                              <ExternalLink className="h-4 w-4" />
+                            </a>
+                          </div>
+                        ) : null}
                       </div>
-
-                      <ul className="mt-6 space-y-3 text-sm leading-7 text-slate-300">
-                        {item.bullets.map((bullet) => (
-                          <li key={bullet} className="flex gap-3">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-300" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {item.link ? (
-                        <div className="mt-6">
-                          <a href={item.link.href} target="_blank" rel="noreferrer" className="secondary-btn">
-                            {item.link.label}
-                            <ExternalLink className="h-4 w-4" />
-                          </a>
-                        </div>
-                      ) : null}
                     </div>
                   </motion.div>
                 ))}

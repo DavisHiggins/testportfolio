@@ -24,6 +24,7 @@ import {
 import headshot from './assets/founder-headshot.webp'
 import propifyLogo from './assets/proptrans.png'
 import higginsDigitalLogo from './assets/higgins-digital-logo.png'
+import kewauneeLogo from './assets/kewaunee-logo.png'
 import dhLogo from './assets/dhtrans.png'
 import anthropologyAward from './assets/anthropologycert.png'
 import thecreek from './assets/thecreek.png'
@@ -65,9 +66,10 @@ const PROJECTS = [
     secondary: { label: 'GitHub Repository', href: 'https://github.com/DavisHiggins/PropifyDemo' },
     accent: 'from-sky-500/25 via-cyan-400/10 to-indigo-500/20',
     logo: propifyLogo,
+    logoClassName: 'h-20 w-20 shrink-0 object-contain bg-transparent sm:h-24 sm:w-24',
   },
   {
-    tag: 'Company Platform',
+    tag: 'Freelance Company',
     title: 'Higgins Digital',
     subtitle: 'Software and web development company focused on high-performance websites for real businesses.',
     description:
@@ -141,6 +143,17 @@ const EXPERIENCE = [
       'Deploy and manage applications, ensuring performance, reliability, and cross-device compatibility.',
       'Optimize UI/UX and site functionality to deliver intuitive, high-quality user experiences aligned with business needs.',
     ],
+  },
+  {
+    period: 'Jan 2026 – Present',
+    title: 'Chaplain',
+    company: 'Phi Delta Theta',
+    detail: 'Faith Leadership · Brotherhood · Chapter Culture',
+    bullets: [
+      'Lead weekly Bible studies focused on faith, discipline, and brotherhood.',
+      'Develop and implement a semester-long scripture plan and engagement system to strengthen chapter culture, leadership, and personal development.',
+    ],
+    link: { label: 'Chaplain Platform', href: 'https://phideltchaplain.vercel.app/' },
   },
   {
     period: 'Jan 2026 – Present',
@@ -408,7 +421,7 @@ export default function App() {
                         <div className="mt-5 rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5">
                           <div className="flex items-center gap-4">
                             <div className="rounded-2xl bg-sky-400/10 p-4 text-sky-300">
-                              <Briefcase className="h-6 w-6" />
+                              <img src={kewauneeLogo} alt="Kewaunee Scientific logo" className="h-6 w-6 object-contain" />
                             </div>
                             <div>
                               <div className="text-sm text-slate-400">Current Role</div>
@@ -474,6 +487,15 @@ export default function App() {
                           </li>
                         ))}
                       </ul>
+
+                      {item.link ? (
+                        <div className="mt-6">
+                          <a href={item.link.href} target="_blank" rel="noreferrer" className="secondary-btn">
+                            {item.link.label}
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </div>
+                      ) : null}
                     </div>
                   </motion.div>
                 ))}
@@ -508,7 +530,7 @@ export default function App() {
                         <img
                           src={project.logo}
                           alt={`${project.title} logo`}
-                          className="h-16 w-16 shrink-0 object-contain bg-transparent sm:h-20 sm:w-20"
+                          className={project.logoClassName ?? 'h-16 w-16 shrink-0 object-contain bg-transparent sm:h-20 sm:w-20'}
                         />
                         <div className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
                           {project.tag}
@@ -916,8 +938,8 @@ export default function App() {
         <div className="section-shell flex items-center justify-between gap-4 py-4">
           <div className="flex items-center gap-3">
             <div className="hidden items-center gap-3.5 sm:flex">
-              <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white">
-                <img src={dhLogo} alt="DH logo" className="h-14 w-14 object-contain" />
+              <div className="flex h-14 w-12 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white">
+                <img src={dhLogo} alt="DH logo" className="h-10 w-10 object-contain" />
               </div>
 
               <div className="leading-none">
